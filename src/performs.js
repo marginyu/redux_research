@@ -13,6 +13,7 @@ export default function performs(...actionKeys) {
   let mapActions = identity;
 
   // Last argument may be a custom mapState function
+  //最后一个参数可能是mapState函数
   const lastIndex = actionKeys.length - 1;
   if (typeof actionKeys[lastIndex] === 'function') {
     console.log("it is a function");

@@ -6,6 +6,7 @@ const BOOTSTRAP_STORE = {
 };
 
 export default function createDispatcher() {
+  
   let observers = {};
   let stores = {};
   let actionCreators = {};
@@ -28,7 +29,7 @@ export default function createDispatcher() {
   // 将变化告诉观察者们
   function emitChange(changedKeys) {
     
-    console.log("changedKeys",changedKeys);
+    console.debug("变变变changedKeys",changedKeys);
     
     if (!changedKeys.length) {
       return;
@@ -160,40 +161,9 @@ export default function createDispatcher() {
     }
   }
 
-  // Support state transactions hooks for devtools.
-  // Useful for hot-reloading some actions on top of a "committed" state.
-  function transact() {
-
-    console.log("transact");
-
-    if (currentTransaction) {
-      throw new Error('Cannot nest transactions.');
-    }
-
-    currentTransaction = [];
-    committedState = currentState;
-
-    function finish(nextState) {
-      currentTransaction = null;
-      committedState = nextState;
-      updateState(nextState);
-    }
-
-    function commit() {
-      finish(currentState);
-    }
-
-    function rollback() {
-      finish(committedState);
-    }
-
-    return { commit, rollback };
-  }
-
   return {
     getActions,
     observeStores,
-    receive,
-    transact
+    receive
   };
 }
