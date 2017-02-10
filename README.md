@@ -31,6 +31,6 @@ createDispathcer.js  observeStores(订阅或者退订)方法被observes.js调用
 如何在浏览器里查看调用堆栈,跟踪代码的逻辑走向?
 
 
-1.redux 原理图
+1.redux 原理图  http://images2015.cnblogs.com/blog/593627/201604/593627-20160418100233882-504389266.png
 2.观察者模式
 3.lodash的某些方法
