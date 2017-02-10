@@ -7,7 +7,7 @@ const BOOTSTRAP_STORE = {
 
 export default function createDispatcher() {
   
-  let observers = {};
+  let observers = {};//观察者
   let stores = {};
   let actionCreators = {};
   let currentState = {};

@@ -1,9 +1,12 @@
 import React from 'react';
 import { performs, observes } from 'redux';
 
-@performs('increment', 'decrement')
-@observes('CounterStore')
-export default class Counter {
+
+// @performs('increment', 'decrement')
+// @observes('CounterStore')
+// export default
+
+class Counter {
     
   render() {
     
@@ -21,3 +24,6 @@ export default class Counter {
     );
   }
 }
+
+
+export default performs('increment','decrement')( observes('CounterStore')(Counter) );

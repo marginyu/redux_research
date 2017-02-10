@@ -55,7 +55,7 @@ export default function connect(...storeKeys) {
 
         const state = mapState(stateFromStores, props);
         if (this.state) {
-          this.setState(state);
+          this.setState(state);//important 通过setState进行组件更新
         } else {
           this.state = state;
         }
