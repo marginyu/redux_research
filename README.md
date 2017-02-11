@@ -34,3 +34,29 @@ createDispathcer.js  observeStores(订阅或者退订)方法被observes.js调用
 1.redux 原理图  http://images2015.cnblogs.com/blog/593627/201604/593627-20160418100233882-504389266.png
 2.观察者模式
 3.lodash的某些方法
+
+mapValues 方法,来说ES6的map方法,遍历对象的属性,返回新对象  http://lodashjs.com/docs/#_mapvaluesobject-iteratee_identity-thisarg
+pick 方法,挑选对象的属性,剔除掉某些属性,返回新对象 http://lodashjs.com/docs/#_pickobject-predicate-thisarg
+identity方法,感觉是个没啥意义的方法,没有做任何处理 http://lodashjs.com/docs/#_pickobject-predicate-thisarg
+
+
+包装层次 dispatcher>performs(需要dispatch的getActions方法)>observes(需要dispatch的observeStores方法)
+
+dispatcher.receive方法将CounterAction和CounterReducer连接了起来
+
+观察者模式在createDispathcer里实现
+
+设计思想
+
+
+http://mp.weixin.qq.com/s/nA2M2QznULKavQgHUFGsAQ   Thingking in Redux（如果你只了解MVC）
+
+store在Redux中很特别，在MVC中难以找和它等价的东西。但是不用担心。store是深藏在幕后被小心保管的东西，就像是一个容器，
+存储了所有为state服务的reducer集合。它有一个方法来获得当前的状态，并且暴露出方法来订阅state的变动（使用“connect()”方法）。
+这就是Redux允许你调用action，并能将它们像props一样传入组件的秘密了。
+
+
+http://cn.redux.js.org/docs/api/Store.html  Redux中的Store
+
+connect方法很关键
+

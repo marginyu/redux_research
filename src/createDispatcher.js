@@ -20,9 +20,15 @@ export default function createDispatcher() {
 
     console.log("computeNextState",state,action);
 
-    return mapValues(stores,
-      (store, key) => store(state[key], action)
+    console.log("oldStores",stores);
+
+    let newStores =  mapValues(stores,
+      (store, key) => {console.log("key",key);return store(state[key], action);}
     );
+
+    console.log("newStores",newStores);
+
+    return newStores;
   }
 
   // Notify observers about the changed stores
