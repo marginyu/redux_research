@@ -12,7 +12,7 @@ class Counter {
     
     console.debug("Counter的props",this.props);
 
-    const { increment, decrement } = this.props;
+    const { increment, decrement,double } = this.props;
     return (
       <p>
         Clicked: {this.props.counter} times
@@ -20,10 +20,12 @@ class Counter {
         <button onClick={() => increment()}>+</button>
         {' '}
         <button onClick={() => decrement()}>-</button>
+          {' '}
+          <button onClick={() => double()}>double</button>
       </p>
     );
   }
 }
 
 
-export default performs('increment','decrement')( observes('CounterStore')(Counter) );
+export default performs('increment','decrement','double')( observes('CounterStore')(Counter) );

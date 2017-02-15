@@ -13,6 +13,10 @@ function decremenent({ counter }) {
   return { counter: counter - 1 };
 }
 
+function d({counter}){
+  return {counter:counter * 2};
+}
+
 export default function CounterStore(state, action) {
   if (!state) {
     return initialState;
@@ -23,6 +27,8 @@ export default function CounterStore(state, action) {
     return incremenent(state, action);
   case DECREMENT_COUNTER:
     return decremenent(state, action);
+    case "DOUBLE2":
+          return d(state,action);
   default:
     return state;
   }

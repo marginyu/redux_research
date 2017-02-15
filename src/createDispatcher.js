@@ -104,6 +104,7 @@ export default function createDispatcher() {
     );
 
     // Let it unregister when the time comes
+    // 返回退订函数
     return () => {
       observedKeys.forEach(key => {
         const index = observers[key].indexOf(handleChange);

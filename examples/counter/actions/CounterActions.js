@@ -22,3 +22,10 @@ export function decrement() {
     type: DECREMENT_COUNTER
   };
 }
+
+
+export function double(){
+  return{
+    type:"DOUBLE2"
+  };
+}

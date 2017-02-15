@@ -32,7 +32,7 @@ export default function connect(...storeKeys) {
       constructor(props, context) {
         super(props, context);
         this.handleChange = this.handleChange.bind(this);
-        this.unobserve = this.context.observeStores(storeKeys, this.handleChange);
+        this.unobserve = this.context.observeStores(storeKeys , this.handleChange);
       }
 
       handleChange(stateFromStores) {

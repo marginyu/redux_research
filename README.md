@@ -9,9 +9,6 @@ redux类似包装器，顶层有个数据集，通过props一层一层往下传�
 使用了lodash工具库
 
 
-参考链接:http://dev.ancii.com/a/6i17585.html Redux 卍解
-
-
 1.Store如何接收来自Views的Action?
 
 2.Store在接收到Action之后，需要根据Action.type和Action.payload修改存储数据，那么，这部分逻辑写在哪里，且怎么将这部分逻辑传递给Store知道呢？
@@ -60,3 +57,6 @@ http://cn.redux.js.org/docs/api/Store.html  Redux中的Store
 
 connect方法很关键
 
+目前写得比较好的redux原理分析文章:
+http://www.aliued.com/?p=3204 Redux 卍解
+http://div.io/topic/1309 深入到源码：解读 redux 的设计思路与用法
