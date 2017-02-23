@@ -18,7 +18,7 @@ export default function provides(dispatcher) {
       static displayName = `ReduxProvides(${wrappedDisplayName})`;
       static childContextTypes = childContextTypes;
 
-      //传参的高及用法
+      //传参的高级用法
       getChildContext() {
         return {
           observeStores: dispatcher.observeStores,
