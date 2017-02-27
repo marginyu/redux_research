@@ -11,8 +11,7 @@ export default function createDispatcher() {
   let stores = {};
   let actionCreators = {};
   let currentState = {};
-  let currentTransaction = null;
-  let committedState = {};
+  
 
   // To compute the next state, combine the next states of every store
   // 计算出新的state
@@ -96,7 +95,7 @@ export default function createDispatcher() {
     }
 
     // Synchronously emit the initial value
-    handleChange();
+    handleChange();//初始值
 
     // Register the observer for each relevant key
     observedKeys.forEach(key =>
@@ -113,16 +112,6 @@ export default function createDispatcher() {
     };
   }
 
-  // Dispatch in the context of current transaction
-  function dispatchInTransaction(action) {
-    console.log("dispatchInTransaction",action);
-
-    if (currentTransaction) {
-      currentTransaction.push(action);
-    }
-    dispatch(action);
-  }
-
   // Bind action creator to the dispatcher
   // 将 action创建者绑定到dispatcher上
   function wrapActionCreator(actionCreator) {
@@ -131,10 +120,10 @@ export default function createDispatcher() {
       const action = actionCreator(...args);
       if (typeof action === 'function') {
         // Async action creator
-        action(dispatchInTransaction);
+        action(dispatch);
       } else {
         // Sync action creator
-        dispatchInTransaction(action);
+        dispatch(action);
       }
     };
   }
@@ -159,13 +148,8 @@ export default function createDispatcher() {
       (store, key) => observers[key] || []
     );
 
-    // Dispatch to initialize stores
-    if (currentTransaction) {
-      updateState(committedState);
-      currentTransaction.forEach(dispatch);
-    } else {
-      dispatch(BOOTSTRAP_STORE);
-    }
+    dispatch(BOOTSTRAP_STORE);
+    
   }
 
   return {

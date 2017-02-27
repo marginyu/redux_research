@@ -9,10 +9,7 @@ const childContextTypes = {
 //xiaomei https://facebook.github.io/react/docs/context.html
 export default function provides(dispatcher) {
   return function (DecoratedComponent) {
-    const wrappedDisplayName =
-      DecoratedComponent.displayName ||
-      DecoratedComponent.name ||
-      'Component';
+    const wrappedDisplayName = DecoratedComponent.name;
 
     return class {
       static displayName = `ReduxProvides(${wrappedDisplayName})`;

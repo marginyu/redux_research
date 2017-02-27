@@ -12,22 +12,8 @@ export default function performs(...actionKeys) {
 
   let mapActions = identity;
 
-  // Last argument may be a custom mapState function
-  //最后一个参数可能是mapState函数
-  const lastIndex = actionKeys.length - 1;
-  if (typeof actionKeys[lastIndex] === 'function') {
-    console.log("it is a function");
-    [mapActions] = actionKeys.splice(lastIndex, 1);
-  }
-
-
-  console.log("xiaomei2",mapActions);
-
   return function (DecoratedComponent) {
-    const wrappedDisplayName =
-      DecoratedComponent.displayName ||
-      DecoratedComponent.name ||
-      'Component';
+    const wrappedDisplayName = DecoratedComponent.name;
 
     console.log("displayName",wrappedDisplayName);
 
@@ -40,15 +26,8 @@ export default function performs(...actionKeys) {
         console.log("props",props);
         this.updateActions(props);
       }
-
-      componentWillReceiveProps(nextProps) {
-        console.log("nextProps",nextProps);
-        this.updateActions(nextProps);
-      }
-
-
+      
       //pick的用法  https://lodash.com/docs/#pick
-
       updateActions(props) {
         this.actions = mapActions(
           pick(this.context.getActions(), actionKeys),

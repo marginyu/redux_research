@@ -32,7 +32,7 @@ createDispathcer.js  observeStores(订阅或者退订)方法被observes.js调用
 2.观察者模式
 3.lodash的某些方法
 
-mapValues 方法,来说ES6的map方法,遍历对象的属性,返回新对象  http://lodashjs.com/docs/#_mapvaluesobject-iteratee_identity-thisarg
+mapValues 方法,类似ES6的map方法,遍历对象的属性,返回新对象  http://lodashjs.com/docs/#_mapvaluesobject-iteratee_identity-thisarg
 pick 方法,挑选对象的属性,剔除掉某些属性,返回新对象 http://lodashjs.com/docs/#_pickobject-predicate-thisarg
 identity方法,感觉是个没啥意义的方法,没有做任何处理 http://lodashjs.com/docs/#_pickobject-predicate-thisarg
 
@@ -60,3 +60,5 @@ connect方法很关键
 目前写得比较好的redux原理分析文章:
 http://www.aliued.com/?p=3204 Redux 卍解
 http://div.io/topic/1309 深入到源码：解读 redux 的设计思路与用法
+
+
