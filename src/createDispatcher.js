@@ -22,7 +22,10 @@ export default function createDispatcher() {
     console.log("oldStores",stores);
 
     let newStores =  mapValues(stores,
-      (store, key) => {console.log("key",key);return store(state[key], action);}
+      (store, key) => {
+        console.log("key",key);
+        return store(state[key], action);
+      }
     );
 
     console.log("newStores",newStores);
@@ -119,9 +122,11 @@ export default function createDispatcher() {
     return function dispatchAction(...args) {
       const action = actionCreator(...args);
       if (typeof action === 'function') {
+        console.debug("是函数");
         // Async action creator
         action(dispatch);
       } else {
+        console.debug("是函数");
         // Sync action creator
         dispatch(action);
       }
@@ -143,13 +148,17 @@ export default function createDispatcher() {
     stores = nextStores;
     actionCreators = mapValues(nextActionCreators, wrapActionCreator);
 
+    console.debug("observers",observers);
     // Merge the observers
     observers = mapValues(stores,
       (store, key) => observers[key] || []
     );
 
+    console.debug("after",observers);
+
     dispatch(BOOTSTRAP_STORE);
-    
+    //dispatch({type:"DECREMENT_COUNTER"});
+
   }
 
   return {

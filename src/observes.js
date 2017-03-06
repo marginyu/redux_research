@@ -32,6 +32,7 @@ export default function connect(...storeKeys) {
         
         stateFromStores = stateFromStores[storeKeys[0]];
         const state = stateFromStores;
+        console.log("更新state后",state);
         this.setState(state);//important 通过setState进行组件更新
       }
 

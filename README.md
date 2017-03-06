@@ -62,3 +62,14 @@ http://www.aliued.com/?p=3204 Redux 卍解
 http://div.io/topic/1309 深入到源码：解读 redux 的设计思路与用法
 
 
+ dispatch(BOOTSTRAP_STORE); 为什么初始化state值无效?
+ 因为执行的时机不对, 还没包裹好
+
+ 根据component生命周期打印日志来看应该可以追踪到问题
+
+ redux设计理念:
+ 统一管理类react应用的数据, 状态管理器
+
+
+ actionCreator是怎么产生的?
+
