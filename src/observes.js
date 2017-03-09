@@ -21,6 +21,28 @@ export default function connect(...storeKeys) {
         this.unobserve = this.context.observeStores(storeKeys , this.handleChange); //订阅
       }
 
+      componentWillMount() {
+        console.log("组件 willMount");
+      }
+
+      componentDidMount() {
+        console.log("组件 DidMount");
+      }
+
+
+      componentWillReceiveProps() {
+        console.log("组件 receive Props");
+      }
+
+      componentWillUpdate(){
+        console.log("组件 will update");
+      }
+
+      componentDidUpdate() {
+        console.log("组件 did update");
+      }
+
+
       handleChange(stateFromStores) {
         this.currentStateFromStores = pick(stateFromStores, storeKeys);
         this.updateState(stateFromStores);

@@ -156,7 +156,7 @@ export default function createDispatcher() {
 
     console.debug("after",observers);
 
-    dispatch(BOOTSTRAP_STORE);
+    //dispatch(BOOTSTRAP_STORE);
     //dispatch({type:"DECREMENT_COUNTER"});
 
   }
