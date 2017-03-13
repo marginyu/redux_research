@@ -1,5 +1,4 @@
-# redux_research
-redux原理探究
+#redux原理探究
 
 
 redux类似包装器，顶层有个数据集，通过props一层一层往下传递

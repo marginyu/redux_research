@@ -3,7 +3,7 @@ import {
   DECREMENT_COUNTER
 } from '../constants/ActionTypes';
 
-const initialState = { counter: 10 };
+const initialState = { counter: 0 };
 
 function incremenent({ counter }) {
   return { counter: counter + 1 };

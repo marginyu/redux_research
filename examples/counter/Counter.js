@@ -27,5 +27,4 @@ class Counter {
   }
 }
 
-
 export default performs('increment','decrement','double')( observes('CounterStore')(Counter) );

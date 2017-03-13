@@ -13,7 +13,8 @@ export default function performs(...actionKeys) {
   let mapActions = identity;
 
   return function (DecoratedComponent) {
-    const wrappedDisplayName = DecoratedComponent.name;
+    //const wrappedDisplayName = DecoratedComponent.name;
+    const wrappedDisplayName = "ReduxObserves(Counter)";
 
     console.log("displayName",wrappedDisplayName);
 
@@ -24,22 +25,29 @@ export default function performs(...actionKeys) {
       constructor(props, context) {
         super(props, context);
         console.log("props",props);
-        this.updateActions(props);
+        //this.updateActions(props);
+        this.state = {
+          actions:mapActions(
+              pick(this.context.getActions(), actionKeys),
+              props
+          )
+        };
+
       }
       
       //pick的用法  https://lodash.com/docs/#pick
-      updateActions(props) {
-        this.actions = mapActions(
-          pick(this.context.getActions(), actionKeys),
-          props
-        );
-      }
+      // updateActions(props) {
+      //   this.actions = mapActions(
+      //     pick(this.context.getActions(), actionKeys),
+      //     props
+      //   );
+      // }
 
       render() {
 
-        console.log("装饰者加上action",this.actions);
+       // console.log("装饰者加上action",this.actions);
         return (
-          <DecoratedComponent {...this.actions} />
+          <DecoratedComponent {...this.state.actions} />
         );
       }
     };
